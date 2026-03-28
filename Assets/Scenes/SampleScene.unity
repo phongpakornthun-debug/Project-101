@@ -2891,7 +2891,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 2ce45133920ca5645973009437711712, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3132,7 +3132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bdee3c6b16a9544962958c1a093392, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChangeSceneOnHit
-  sceneName: Win
+  Credit: 
   targetTag: Player
 --- !u!65 &2117647798
 BoxCollider:
@@ -3281,7 +3281,7 @@ PrefabInstance:
       objectReference: {fileID: 526767585}
     - target: {fileID: 2726728019798823809, guid: 916988985f319e644857c20d865f4b4b, type: 3}
       propertyPath: timeLeft
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 2726728019798823809, guid: 916988985f319e644857c20d865f4b4b, type: 3}
       propertyPath: m_Enabled

@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class ChangeSceneOnHit : MonoBehaviour
 {
     [Header("Scene Settings")]
-    [SerializeField] private string sceneName;
+    [SerializeField] private string Credit;
 
     [Header("Trigger Settings")]
     [SerializeField] private string targetTag = "Player"; 
@@ -18,9 +18,9 @@ public class ChangeSceneOnHit : MonoBehaviour
 
     void LoadScene()
     {
-        if (!string.IsNullOrEmpty(sceneName))
+        if (!string.IsNullOrEmpty(Credit))
         {
-            SceneManager.LoadScene(sceneName);
+            SceneManager.LoadScene(Credit);
         }
 
     }
