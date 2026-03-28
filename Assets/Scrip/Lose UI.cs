@@ -1,20 +1,43 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerLose : MonoBehaviour
 {
     [SerializeField] private GameObject loseUI;
+    [SerializeField] private TMP_Text timerText;
+    [SerializeField] private float timeLeft = 60f;
+
     private Rigidbody rb;
+    private bool isGameOver = false;
 
     void Start()
     {
+        Time.timeScale = 1f;
+
         rb = GetComponent<Rigidbody>();
 
         if (loseUI != null)
             loseUI.SetActive(false);
     }
+    void Update()
+    {
+        if (isGameOver) return;
 
-    void OnTriggerEnter(Collider other)
+        
+        timeLeft -= Time.deltaTime;
+
+      
+        timerText.text = "Time: " + Mathf.Ceil(timeLeft).ToString();
+
+        
+        if (timeLeft <= 0)
+        {
+            Lose();
+        }
+    }
+
+        void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DeadZone"))
         {
@@ -30,7 +53,7 @@ public class PlayerLose : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Lose UI ยังไม่ได้ใส่ใน Inspector!");
+            Debug.LogWarning("Lose UI ยังไม่ได้ใส่ใน Inspector");
         }
 
         Time.timeScale = 0f;
@@ -39,6 +62,6 @@ public class PlayerLose : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
